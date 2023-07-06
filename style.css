@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+/* //////General Styles////// */
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   list-style: none;
+}
+html {
+   font-size: 82.5%;
+   scroll-behavior: smooth;
+}
+:root {
+   --primary: #03045e;
+   --secondary: #0077b6;
+   --light-primary: #00b4d8;
+   --light-secondary: #90e0ef;
+   --very-light-secondary: #caf0f8;
+}
+.container {
+   width: 90%;
+   margin: 0 auto;
+}
+section {
+   padding: 2rem 0;
+   min-height: 100vh;
+}
+h2 {
+   font-size: 6rem;
+   color: var(--secondary);
+   text-shadow: 0.1rem 0.1rem 0.5rem var(--secondary);
+   margin-bottom: 6rem;
+   text-align: center;
+   text-transform: uppercase;
+}
+hr {
+   height: 0.1rem;
+   border: none;
+   background-color: var(--very-light-secondary);
+   margin: 3rem 0;
+}
+.card-wrapper {
+   display: flex;
+   justify-content: space-evenly;
+   gap: 4rem;
+   height: 70vh;
+   align-items: center;
+}
+.card {
+   flex-basis: 22rem;
+   padding: 2rem;
+   background-color: var(--light-primary);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   border-radius: 1rem;
+   box-shadow: 0.5rem 0.5rem 1rem var(--secondary),
+      -0.2rem 0.2rem 1rem var(--secondary);
+}
+.card p {
+   font-size: 1.4rem;
+   color: #fff;
+}
+
+/* //////Header Section////// */
+header {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+   overflow: hidden;
+}
+.header-bg {
+   width: 150vw;
+   height: 150vw;
+   border-radius: 40%;
+   background-color: var(--light-secondary);
+   position: absolute;
+   top: calc(80% - 150vw);
+   left: calc(50% - 75vw);
+   animation: rotateHeaderBG 30s infinite;
+   z-index: -1;
+}
+.header-bg::after {
+   content: '';
+   width: 100%;
+   height: 100%;
+   border-radius: 45%;
+   background-color: var(--light-primary);
+   position: absolute;
+   top: 0;
+   left: 0rem;
+   animation: rotateHeaderBG 30s infinite;
+}
+
+@keyframes rotateHeaderBG {
+   0% {
+      transform: rotate(0);
+   }
+   100% {
+      transform: rotate(450deg);
+   }
+}
+
+header .container {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 100%;
+   align-items: center;
+}
+
+nav {
+   margin-top: 2rem;
+   width: 100%;
+   height: 17.5rem;
+   display: flex;
+   align-items: top;
+   justify-content: space-evenly;
+}
+
+nav a {
+   color: #fff;
+   font-size: 1.6rem;
+   padding-top: 1rem;
+   width: 1.2rem;
+   word-wrap: break-word;
+   transition: all 0.5s;
+   text-align: center;
+   letter-spacing: 0.1rem;
+}
+
+nav a:hover {
+   width: 12rem;
+   word-break: unset;
+   background-color: var(--light-secondary);
+   transition: all 2.5s;
+}
+header h1 {
+   color: #fff;
+   font-family: 'Tilt Prism', cursive;
+   font-size: 6rem;
+   letter-spacing: 0.2rem;
+}
+.logo {
+   font-size: 7rem;
+   text-align: center;
+   font-family: 'Tilt Prism', cursive;
+   color: var(--secondary);
+}
+
+/* //////Customers Section////// */
+
+.customers-section .card:nth-child(1) {
+   align-self: flex-end;
+}
+.customers-section .card:nth-child(3) {
+   align-self: flex-start;
+}
+
+.customers-section img {
+   width: 7rem;
+   height: 7rem;
+   border-radius: 50%;
+   margin: 2rem 0;
+}
+
+.card h3 {
+   font-size: 2rem;
+   color: var(--primary);
+}
+
+/* //////Teams Section////// */
+.teams-section img {
+   width: 100%;
+}
+.teams-section h3 {
+   margin-top: 1rem;
+}
+.teams-section p {
+   position: absolute;
+   top: 0;
+   right: 0;
+   background-color: var(--primary);
+   visibility: hidden;
+   padding: 1rem;
+   height: 0;
+   opacity: 0;
+   transition: all 0.5s;
+}
+.teams-section .change p {
+   border-radius: 1rem;
+   visibility: visible;
+   height: 100%;
+   opacity: 1;
+}
+.position {
+   color: #fff;
+   font-size: 1.4rem;
+   letter-spacing: 0.1rem;
+}
+.teams-section .card:nth-child(1) {
+   align-self: flex-start;
+}
+.teams-section .card:nth-child(3) {
+   align-self: flex-end;
+}
+.teams-section .card {
+   position: relative;
+}
+.rotate-btn {
+   width: 2.4rem;
+   height: 2.4rem;
+   font-size: 1.6rem;
+   font-weight: bold;
+   color: var(--secondary);
+   border: 0.2rem solid var(--secondary);
+   border-radius: 50%;
+   position: absolute;
+   top: 0;
+   right: 0;
+   cursor: pointer;
+   transition: transform 0.5s;
+   transform: rotate(30deg);
+}
+.change .rotate-btn {
+   transform: rotate(-330deg);
+}
+
+/* //////Contact Section////// */
+.contact-wrapper {
+   display: flex;
+   justify-content: space-around;
+   background-color: var(--very-light-secondary);
+   padding: 2rem;
+   position: relative;
+   perspective: 150rem;
+}
+.contact-wrapper img {
+   width: 50%;
+   transform: rotateY(45deg);
+   padding: 2rem;
+   background-color: var(--light-primary);
+}
+form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--light-primary);
+   padding: 2rem;
+   transform: rotateY(-45deg);
+   width: 50%;
+}
+form h3 {
+   font-size: 3rem;
+   text-align: center;
+   text-align: center;
+   color: #fff;
+   margin-bottom: 3rem;
+}
+form input,
+form button {
+   width: 100%;
+   height: 5rem;
+   padding: 1rem;
+   font-size: 2rem;
+   margin: 1.2rem;
+}
+form input {
+   letter-spacing: 0.1rem;
+}
+form input:focus {
+   outline-color: var(--light-primary);
+}
+form button {
+   background-color: var(--light-secondary);
+   border: 0.1rem solid var(--secondary);
+   color: var(--secondary);
+   font-weight: bold;
+   letter-spacing: 0.1rem;
+}
+
+/* //////Scroll Top Button////// */
+.scroll-top {
+   font-size: 3rem;
+   display: flex;
+   place-items: center;
+   cursor: pointer;
+   background-color: var(--very-light-secondary);
+   position: fixed;
+   bottom: 3rem;
+   right: 3rem;
+   border-radius: 50%;
+}
+
+/* //////Footer Section////// */
+footer {
+   height: 8rem;
+   width: 100%;
+   display: grid;
+   place-items: center;
+   margin-top: 4rem;
+   background-color: var(--light-primary);
+}
+footer p {
+   font-size: 1.6rem;
+   color: #fff;
+   letter-spacing: 0.1rem;
+}
+
+/* //////Responsive Section////// */
+@media screen and (max-width: 1386px) {
+   html {
+      font-size: 62.5%;
+   }
+}
+@media screen and (max-width: 1024px) {
+   section {
+      min-height: fit-content;
+   }
+   .contact-wrapper {
+      perspective: none;
+   }
+   .contact-wrapper img {
+      display: none;
+   }
+   form {
+      transform: rotateY(0);
+      /* width: 50%; */
+   }
+   .card-wrapper {
+      flex-wrap: wrap;
+      height: auto;
+   }
+   .customers-section .card:nth-child(1),
+   .customers-section .card:nth-child(3),
+   .teams-section .card:nth-child(1),
+   .teams-section .card:nth-child(3) {
+      align-self: center;
+   }
+}
+@media screen and (max-width: 600px) {
+   .container {
+      width: 100%;
+   }
+   .contact-wrapper {
+      display: block;
+   }
+   form {
+      width: 100%;
+   }
+   h2,
+   header h1 {
+      font-size: 4rem;
+   }
+   .card {
+      flex-basis: 95%;
+   }
+   header {
+      height: 80vh;
+      text-align: center;
+   }
+   .logo {
+      margin: 3rem;
+   }
+   .header-bg {
+      width: 200vw;
+      height: 200vw;
+      top: calc(80% - 200vw);
+      left: calc(50% - 100vw);
+   }
+   .scroll-top {
+      font-size: 2rem;
+   }
+}
+@media screen and (max-width: 400px) {
+   h2,
+   header h1 {
+      font-size: 3rem;
+   }
+}
